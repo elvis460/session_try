@@ -41,39 +41,28 @@
     <div class="container">
 
       <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h1>Navbar example</h1>
-        <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-        <p>To see the difference between static and fixed top navbars, just scroll.</p>
-        <p>
-          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs »</a>
-        </p>
-      </div>
+    
   <table class="table"> 
     <caption>Optional table caption.</caption> 
     <thead> 
       <tr>
           <th>#</th>
           <th>Name</th>
-          <th>cart</th> 
+          <th>Intro</th>
+          <th>Price</th>
+          <th>Cart</th> 
       </tr> 
     </thead>
       <tbody> 
+        <% @product.each do |product|%>
         <tr> 
-          <th scope="row">1</th> 
-          <td>Mark</td>
-           <td><button class="btn btn-danger" data-id="1">cart</button></td> 
+          <th scope="row"><%=product.id%></th> 
+          <td><%=product.name%></td>
+          <td><%=product.intro%></td>
+          <td><%=product.price%></td>
+          <td><button class="btn btn-danger" data-id="<%=product.id%>">cart</button></td> 
         </tr> 
-        <tr> 
-          <th scope="row">2</th> 
-          <td>Jacob</td> 
-           <td><button class="btn btn-danger" data-id="2">cart</button></td> 
-        </tr> 
-        <tr> 
-          <th scope="row">3</th> 
-          <td>Larry</td> 
-           <td><button class="btn btn-danger" data-id="3">cart</button></td> 
-        </tr> 
+        <%end%>
       </tbody> 
     </table>
   </div> <!-- /container -->

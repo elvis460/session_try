@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
 	  skip_before_filter :verify_authenticity_token
 	def index
-
+		@product = Product.all
 	end
 	def add_session
 		if session[:cart_id].blank?
