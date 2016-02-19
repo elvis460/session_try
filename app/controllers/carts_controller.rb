@@ -10,6 +10,13 @@ class CartsController < ApplicationController
 			session[:cart_id]["cart"+params[:id]] = params[:id]
 			render json: session
 	end
+	
+	def delete_session
+		session[:cart_id]["cart"+params[:id]]=nil
+		
+		render text: 'delete'
+	end
+	
 	def display
 		
 	end

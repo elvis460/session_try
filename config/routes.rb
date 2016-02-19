@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   get 'carts/display'
   resources 'carts'
   post 'carts/add_session'
+  post 'carts/delete_session'
+
+  
+  resources 'pays'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

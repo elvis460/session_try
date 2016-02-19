@@ -1,0 +1,38 @@
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Intro</th>
+			<th>Price</th>
+			<th>Operate</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%@products.each do |product|%>
+			<tr>
+				<td><%=product.name%></td>
+				<td><%=product.intro%></td>
+				<td><%=product.price%></td>
+				<td><button class="btn btn-danger" data-id="<%=product.id%>">delete</button></td>
+			</tr>
+		<%end%>
+	</tbody>	
+</table>
+<script>
+	$('.btn').on('click',function(){
+		$.ajax({
+     		method:'post',
+      		url: 'carts/delete_session',
+      		data: {
+       	 		id: $(this).data('id')
+      		},
+      		success: function(data) {
+               setTimeout(
+                  function() 
+                  {
+                     location.reload();
+                  }, 0001);    
+   		 	},
+    	});
+	});
+</script>
